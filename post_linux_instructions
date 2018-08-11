@@ -1,0 +1,51 @@
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get install zsh -y
+// Make zsh default
+chsh -s $(which zsh)
+sudo apt-get install vim -y
+sudo apt-get install curl -y
+sudo apt-get install git -y
+// Ustaw .oh-my-zsh folder
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+// Wejdz do .zshrc i zmien ZSH_THEME na "agnoster"
+// Napraw font w zsh
+sudo apt-get install fonts-powerline -y
+// Powklejaj z gita repa do workspace
+sudo apt-get install tmux -y
+// Instalacja Docker i Docker-Compose
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+apt-cache policy docker-ce
+sudo apt-get install -y docker-ce
+sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+
+// Exportuj skroty klawiszowe do .zshrc
+
+echo "alias docc="docker-compose"" >> ~/.zshrc
+echo "alias doc="docker"" >> ~/.zshrc
+
+
+// I3 windows manager
+sudo apt-get install i3 -y
+
+
+
+
+
+
+
+
+// Instalacja VSC
+https://code.visualstudio.com/docs/setup/linux
+
+// Ustaw TERMINAL ZSH w VSC wklejajac do ustawien
+{
+    "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline",
+    "terminal.integrated.shell.linux": "/bin/zsh",
+}
